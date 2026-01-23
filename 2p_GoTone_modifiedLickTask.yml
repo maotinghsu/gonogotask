@@ -20,7 +20,7 @@ responseWindowSettings:
   goResponseWindow: 1
   noGoResponseWindow: 1
 solenoidProperties:
-  pulsePeriod: 250
+  pulsePeriod: 40
 timeoutProperties:
   pullTimeout: 0.5
   responseTimeout: 12
