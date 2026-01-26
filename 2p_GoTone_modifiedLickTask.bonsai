@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<WorkflowBuilder Version="2.8.1"
+<WorkflowBuilder Version="2.9.0"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                  xmlns:rx="clr-namespace:Bonsai.Reactive;assembly=Bonsai.Core"
                  xmlns:p1="clr-namespace:;assembly=Extensions"
@@ -21,30 +21,34 @@
                  xmlns="https://bonsai-rx.org/2018/workflow">
   <Workflow>
     <Nodes>
-      <Expression xsi:type="SubscribeSubject">
-        <Name>TaskParameters</Name>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="SubscribeSubject">
+          <Name>TaskParameters</Name>
+        </Builder>
       </Expression>
-      <Expression xsi:type="PropertyMapping">
-        <PropertyMappings>
-          <Property Name="NumberOfTrials" Selector="ExperimentControl.NumberOfTrials" />
-          <Property Name="Percentage Go Trials" Selector="ExperimentControl.PercentageGoTrials" />
-          <Property Name="Percentage Catch Trials" Selector="ExperimentControl.PercentageCatchTrials" />
-          <Property Name="Lower Bound ITI Duration " Selector="ItiDuration.LowerBoundDuration" />
-          <Property Name="Upper Bound ITI Duration" Selector="ItiDuration.UpperBoundDuration" />
-          <Property Name="Lower Bound Penalty Duration" Selector="ItiDuration.LowerBoundPenaltyDuration" />
-          <Property Name="Upper Bound Penalty Duration" Selector="ItiDuration.UpperBoundPenaltyDuration" />
-          <Property Name="ITI Lower Threshold" Selector="JoystickParameters.ItiLowerThreshold" />
-          <Property Name="ITI Upper Threshold" Selector="JoystickParameters.ItiUpperThreshold" />
-          <Property Name="Pull Threshold" Selector="JoystickParameters.PullThreshold" />
-          <Property Name="Go Response Window (s)" Selector="ResponseWindowSettings.GoResponseWindow" />
-          <Property Name="NoGo Response Window (s)" Selector="ResponseWindowSettings.NoGoResponseWindow" />
-          <Property Name="Pulse Period(ms)" Selector="SolenoidProperties.PulsePeriod" />
-          <Property Name="Pull Timeout" Selector="TimeoutProperties.PullTimeout" />
-          <Property Name="Response Timeout" Selector="TimeoutProperties.ResponseTimeout" />
-          <Property Name="GoSound" Selector="ToneProperties.GoSound" />
-          <Property Name="MissTone" Selector="ToneProperties.MissTone" />
-          <Property Name="NoGoSound" Selector="ToneProperties.NoGoSound" />
-        </PropertyMappings>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="PropertyMapping">
+          <PropertyMappings>
+            <Property Name="NumberOfTrials" Selector="ExperimentControl.NumberOfTrials" />
+            <Property Name="Percentage Go Trials" Selector="ExperimentControl.PercentageGoTrials" />
+            <Property Name="Percentage Catch Trials" Selector="ExperimentControl.PercentageCatchTrials" />
+            <Property Name="Lower Bound ITI Duration " Selector="ItiDuration.LowerBoundDuration" />
+            <Property Name="Upper Bound ITI Duration" Selector="ItiDuration.UpperBoundDuration" />
+            <Property Name="Lower Bound Penalty Duration" Selector="ItiDuration.LowerBoundPenaltyDuration" />
+            <Property Name="Upper Bound Penalty Duration" Selector="ItiDuration.UpperBoundPenaltyDuration" />
+            <Property Name="ITI Lower Threshold" Selector="JoystickParameters.ItiLowerThreshold" />
+            <Property Name="ITI Upper Threshold" Selector="JoystickParameters.ItiUpperThreshold" />
+            <Property Name="Pull Threshold" Selector="JoystickParameters.PullThreshold" />
+            <Property Name="Go Response Window (s)" Selector="ResponseWindowSettings.GoResponseWindow" />
+            <Property Name="NoGo Response Window (s)" Selector="ResponseWindowSettings.NoGoResponseWindow" />
+            <Property Name="Pulse Period(ms)" Selector="SolenoidProperties.PulsePeriod" />
+            <Property Name="Pull Timeout" Selector="TimeoutProperties.PullTimeout" />
+            <Property Name="Response Timeout" Selector="TimeoutProperties.ResponseTimeout" />
+            <Property Name="GoSound" Selector="ToneProperties.GoSound" />
+            <Property Name="MissTone" Selector="ToneProperties.MissTone" />
+            <Property Name="NoGoSound" Selector="ToneProperties.NoGoSound" />
+          </PropertyMappings>
+        </Builder>
       </Expression>
       <Expression xsi:type="GroupWorkflow">
         <Name>TwoToneExperiment</Name>
@@ -260,8 +264,8 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="p2:CreateContinuousUniform">
-                      <p2:Lower>5</p2:Lower>
-                      <p2:Upper>7</p2:Upper>
+                      <p2:Lower>2</p2:Lower>
+                      <p2:Upper>2</p2:Upper>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="Combinator">
@@ -277,7 +281,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="rx:Delay">
-                      <rx:DueTime>PT6.601S</rx:DueTime>
+                      <rx:DueTime>PT2S</rx:DueTime>
                     </Combinator>
                   </Expression>
                   <Expression xsi:type="SubscribeSubject">
@@ -340,7 +344,7 @@
                         </Expression>
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Throttle">
-                            <rx:DueTime>PT0.161S</rx:DueTime>
+                            <rx:DueTime>PT0.127S</rx:DueTime>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -803,7 +807,6 @@
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Timer">
                             <rx:DueTime>PT1S</rx:DueTime>
-                            <rx:Period>PT0S</rx:Period>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -1170,7 +1173,6 @@
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Timer">
                             <rx:DueTime>PT1S</rx:DueTime>
-                            <rx:Period>PT0S</rx:Period>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -1469,7 +1471,6 @@
                         <Expression xsi:type="Combinator">
                           <Combinator xsi:type="rx:Timer">
                             <rx:DueTime>PT1S</rx:DueTime>
-                            <rx:Period>PT0S</rx:Period>
                           </Combinator>
                         </Expression>
                         <Expression xsi:type="Combinator">
@@ -1807,7 +1808,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-22T16-22-51/ResponseStat.csv</io:FileName>
+              <io:FileName>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-26T13-22-18/ResponseStat.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>None</io:Suffix>
@@ -1848,9 +1849,9 @@
             </Expression>
             <Expression xsi:type="Combinator">
               <Combinator xsi:type="p1:StateTransition">
-                <p1:Trial>2</p1:Trial>
+                <p1:Trial>4</p1:Trial>
                 <p1:Id>ITI</p1:Id>
-                <p1:ElapsedTime>4845546.780032</p1:ElapsedTime>
+                <p1:ElapsedTime>5180314.041024</p1:ElapsedTime>
               </Combinator>
             </Expression>
             <Expression xsi:type="Combinator">
@@ -1879,7 +1880,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-22T16-22-51/GoTone_StateTransitions.csv</io:FileName>
+              <io:FileName>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-26T13-22-18/GoTone_StateTransitions.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>None</io:Suffix>
@@ -1941,7 +1942,7 @@
               </PropertyMappings>
             </Expression>
             <Expression xsi:type="io:CsvWriter">
-              <io:FileName>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-22T16-22-51/sounds.csv</io:FileName>
+              <io:FileName>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-26T13-22-18/sounds.csv</io:FileName>
               <io:Append>false</io:Append>
               <io:Overwrite>false</io:Overwrite>
               <io:Suffix>None</io:Suffix>
@@ -2127,7 +2128,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:MatrixWriter">
-                      <dsp:Path>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-22T16-22-51/Joystick.bin</dsp:Path>
+                      <dsp:Path>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-26T13-22-18/Joystick.bin</dsp:Path>
                       <dsp:Suffix>None</dsp:Suffix>
                       <dsp:Overwrite>false</dsp:Overwrite>
                       <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -2253,7 +2254,7 @@
                   </Expression>
                   <Expression xsi:type="Combinator">
                     <Combinator xsi:type="dsp:MatrixWriter">
-                      <dsp:Path>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-22T16-22-51/soundcard.bin</dsp:Path>
+                      <dsp:Path>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-26T13-22-18/soundcard.bin</dsp:Path>
                       <dsp:Suffix>None</dsp:Suffix>
                       <dsp:Overwrite>false</dsp:Overwrite>
                       <dsp:Layout>ColumnMajor</dsp:Layout>
@@ -2343,9 +2344,6 @@
             </Expression>
             <Expression xsi:type="IncludeWorkflow" Path="Extensions\LogState.bonsai">
               <Id>Annotation</Id>
-            </Expression>
-            <Expression xsi:type="SubscribeSubject">
-              <Name>TaskParameters</Name>
             </Expression>
           </Nodes>
           <Edges>
@@ -2543,7 +2541,7 @@
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="io:CsvWriter">
-        <io:FileName>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-22T16-22-51/JoystickTrace.csv</io:FileName>
+        <io:FileName>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-26T13-22-18/JoystickTrace.csv</io:FileName>
         <io:Append>false</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>None</io:Suffix>
@@ -2576,7 +2574,7 @@
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="io:CsvWriter">
-        <io:FileName>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-22T16-22-51/Timestamp_camera0_pupil_facial.csv</io:FileName>
+        <io:FileName>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-26T13-22-18/Timestamp_camera0_pupil_facial.csv</io:FileName>
         <io:Append>false</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>None</io:Suffix>
@@ -2596,7 +2594,7 @@
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="io:CsvWriter">
-        <io:FileName>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-22T16-22-51/Camera0_pupil_facial.csv</io:FileName>
+        <io:FileName>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-26T13-22-18/Camera0_pupil_facial.csv</io:FileName>
         <io:Append>false</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>None</io:Suffix>
@@ -2624,7 +2622,7 @@
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="cv:VideoWriter">
-          <cv:FileName>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-22T16-22-51/Camera0_pupil_whisker_.avi</cv:FileName>
+          <cv:FileName>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-26T13-22-18/Camera0_pupil_whisker_.avi</cv:FileName>
           <cv:Suffix>Timestamp</cv:Suffix>
           <cv:Buffered>true</cv:Buffered>
           <cv:Overwrite>false</cv:Overwrite>
@@ -2697,7 +2695,6 @@
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="rx:Timer">
           <rx:DueTime>PT0S</rx:DueTime>
-          <rx:Period>PT0S</rx:Period>
         </Combinator>
       </Expression>
       <Expression xsi:type="ExternalizedMapping">
@@ -2756,7 +2753,7 @@
         </PropertyMappings>
       </Expression>
       <Expression xsi:type="io:CsvWriter">
-        <io:FileName>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-22T16-22-51/LickTrace.csv</io:FileName>
+        <io:FileName>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-26T13-22-18/LickTrace.csv</io:FileName>
         <io:Append>false</io:Append>
         <io:Overwrite>false</io:Overwrite>
         <io:Suffix>None</io:Suffix>
@@ -2869,40 +2866,58 @@
       <Expression xsi:type="IncludeWorkflow" Path="Extensions\LogState.bonsai">
         <Id>Blink</Id>
       </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="p1:ReadAllText">
-          <p1:Path>2p_GoTone_modifiedLickTask.yml</p1:Path>
-        </Combinator>
-      </Expression>
-      <Expression xsi:type="p4:DeserializeFromYaml">
-        <p4:Type xsi:type="TypeMapping" TypeArguments="p4:ModifiedGoNoGoTask" />
-      </Expression>
-      <Expression xsi:type="rx:BehaviorSubject">
-        <Name>TaskParameters</Name>
-      </Expression>
-      <Expression xsi:type="SubscribeSubject">
-        <Name>TaskParameters</Name>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="p4:SerializeToYaml" />
-      </Expression>
-      <Expression xsi:type="SubscribeSubject">
-        <Name>Path</Name>
-      </Expression>
-      <Expression xsi:type="Add">
-        <Operand xsi:type="StringProperty">
-          <Value>/TaskParameters.yml</Value>
-        </Operand>
-      </Expression>
-      <Expression xsi:type="PropertyMapping">
-        <PropertyMappings>
-          <Property Name="Path" />
-        </PropertyMappings>
-      </Expression>
-      <Expression xsi:type="Combinator">
-        <Combinator xsi:type="p1:WriteAllText">
-          <p1:Path>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-22T16-22-51/TaskParameters.yml</p1:Path>
-        </Combinator>
+      <Expression xsi:type="Disable">
+        <Builder xsi:type="GroupWorkflow">
+          <Name>Metadata Serialization</Name>
+          <Workflow>
+            <Nodes>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="p1:ReadAllText">
+                  <p1:Path>2p_GoTone_modifiedLickTask.yml</p1:Path>
+                </Combinator>
+              </Expression>
+              <Expression xsi:type="p4:DeserializeFromYaml">
+                <p4:Type xsi:type="TypeMapping" TypeArguments="p4:ModifiedGoNoGoTask" />
+              </Expression>
+              <Expression xsi:type="rx:BehaviorSubject">
+                <Name>TaskParameters</Name>
+              </Expression>
+              <Expression xsi:type="SubscribeSubject">
+                <Name>TaskParameters</Name>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="p4:SerializeToYaml" />
+              </Expression>
+              <Expression xsi:type="SubscribeSubject">
+                <Name>Path</Name>
+              </Expression>
+              <Expression xsi:type="Add">
+                <Operand xsi:type="StringProperty">
+                  <Value>/TaskParameters.yml</Value>
+                </Operand>
+              </Expression>
+              <Expression xsi:type="PropertyMapping">
+                <PropertyMappings>
+                  <Property Name="Path" />
+                </PropertyMappings>
+              </Expression>
+              <Expression xsi:type="Combinator">
+                <Combinator xsi:type="p1:WriteAllText">
+                  <p1:Path>C:\Users\sippylab\Desktop\Data\Go_NoGo/MTH/Go_D1/MTH000_Go_D1_2026-01-22T16-22-51/TaskParameters.yml</p1:Path>
+                </Combinator>
+              </Expression>
+            </Nodes>
+            <Edges>
+              <Edge From="0" To="1" Label="Source1" />
+              <Edge From="1" To="2" Label="Source1" />
+              <Edge From="3" To="4" Label="Source1" />
+              <Edge From="4" To="8" Label="Source1" />
+              <Edge From="5" To="6" Label="Source1" />
+              <Edge From="6" To="7" Label="Source1" />
+              <Edge From="7" To="8" Label="Source2" />
+            </Edges>
+          </Workflow>
+        </Builder>
       </Expression>
       <Expression xsi:type="Combinator">
         <Combinator xsi:type="num:CreateRandom">
@@ -3292,22 +3307,15 @@ Item5 as NoGoToneTick)</scr:Expression>
       <Edge From="65" To="66" Label="Source1" />
       <Edge From="66" To="67" Label="Source2" />
       <Edge From="68" To="69" Label="Source1" />
-      <Edge From="70" To="71" Label="Source1" />
       <Edge From="71" To="72" Label="Source1" />
       <Edge From="73" To="74" Label="Source1" />
-      <Edge From="74" To="78" Label="Source1" />
+      <Edge From="74" To="81" Label="Source1" />
       <Edge From="75" To="76" Label="Source1" />
-      <Edge From="76" To="77" Label="Source1" />
-      <Edge From="77" To="78" Label="Source2" />
+      <Edge From="76" To="81" Label="Source2" />
+      <Edge From="77" To="78" Label="Source1" />
+      <Edge From="78" To="81" Label="Source3" />
       <Edge From="79" To="80" Label="Source1" />
-      <Edge From="81" To="82" Label="Source1" />
-      <Edge From="82" To="89" Label="Source1" />
-      <Edge From="83" To="84" Label="Source1" />
-      <Edge From="84" To="89" Label="Source2" />
-      <Edge From="85" To="86" Label="Source1" />
-      <Edge From="86" To="89" Label="Source3" />
-      <Edge From="87" To="88" Label="Source1" />
-      <Edge From="88" To="89" Label="Source4" />
+      <Edge From="80" To="81" Label="Source4" />
     </Edges>
   </Workflow>
 </WorkflowBuilder>
