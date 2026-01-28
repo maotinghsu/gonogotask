@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VisualizerLayout Version="2.9.0">
-  <WindowSettings Index="3">
+  <WindowSettings Index="28">
     <Visible>false</Visible>
     <Location>
       <X>130</X>
@@ -15,7 +15,7 @@
       <ObjectTextVisualizer />
     </VisualizerSettings>
   </WindowSettings>
-  <WindowSettings Index="83">
+  <WindowSettings Index="117">
     <Location>
       <X>182</X>
       <Y>83</Y>
