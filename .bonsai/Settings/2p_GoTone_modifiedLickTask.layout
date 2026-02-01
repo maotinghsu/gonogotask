@@ -2,33 +2,25 @@
 <VisualizerLayout Version="2.9.0">
   <WindowSettings Index="28">
     <Visible>false</Visible>
-    <Location>
-      <X>130</X>
-      <Y>130</Y>
-    </Location>
-    <Size>
-      <Width>336</Width>
-      <Height>65</Height>
-    </Size>
     <VisualizerTypeName>Bonsai.Design.ObjectTextVisualizer</VisualizerTypeName>
     <VisualizerSettings>
       <ObjectTextVisualizer />
     </VisualizerSettings>
   </WindowSettings>
-  <WindowSettings Index="117">
+  <WindowSettings Index="145">
     <Location>
-      <X>182</X>
-      <Y>83</Y>
+      <X>130</X>
+      <Y>101</Y>
     </Location>
     <Size>
-      <Width>1268</Width>
-      <Height>912</Height>
+      <Width>1482</Width>
+      <Height>829</Height>
     </Size>
     <VisualizerTypeName>Bonsai.Design.Visualizers.TableLayoutPanelVisualizer</VisualizerTypeName>
     <VisualizerSettings>
       <TableLayoutPanelVisualizer>
         <MashupSettings>
-          <Source>75</Source>
+          <Source>135</Source>
           <VisualizerTypeName>StateVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <StateVisualizer>
@@ -37,26 +29,33 @@
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>77</Source>
+          <Source>137</Source>
           <VisualizerTypeName>ResponseVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <ResponseVisualizer />
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>79</Source>
+          <Source>139</Source>
           <VisualizerTypeName>Bonsai.Design.Visualizers.RollingGraphVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <RollingGraphVisualizer>
               <Capacity>1000</Capacity>
-              <Min>-0.3</Min>
-              <Max>0.4</Max>
-              <AutoScale>true</AutoScale>
+              <Min>-0.39018262089245836</Min>
+              <Max>0.41185849181362111</Max>
+              <AutoScale>false</AutoScale>
             </RollingGraphVisualizer>
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>81</Source>
+          <Source>141</Source>
+          <VisualizerTypeName>Bonsai.Vision.Design.IplImageVisualizer</VisualizerTypeName>
+          <VisualizerSettings>
+            <IplImageVisualizer />
+          </VisualizerSettings>
+        </MashupSettings>
+        <MashupSettings>
+          <Source>143</Source>
           <VisualizerTypeName>Bonsai.Vision.Design.IplImageVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <IplImageVisualizer />
