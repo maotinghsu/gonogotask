@@ -7,7 +7,7 @@
       <ObjectTextVisualizer />
     </VisualizerSettings>
   </WindowSettings>
-  <WindowSettings Index="145">
+  <WindowSettings Index="151">
     <Location>
       <X>130</X>
       <Y>101</Y>
@@ -20,7 +20,7 @@
     <VisualizerSettings>
       <TableLayoutPanelVisualizer>
         <MashupSettings>
-          <Source>135</Source>
+          <Source>141</Source>
           <VisualizerTypeName>StateVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <StateVisualizer>
@@ -29,33 +29,33 @@
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>137</Source>
+          <Source>143</Source>
           <VisualizerTypeName>ResponseVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <ResponseVisualizer />
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>139</Source>
+          <Source>145</Source>
           <VisualizerTypeName>Bonsai.Design.Visualizers.RollingGraphVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <RollingGraphVisualizer>
               <Capacity>1000</Capacity>
-              <Min>-0.39018262089245836</Min>
-              <Max>0.41185849181362111</Max>
+              <Min>-0.37040049755994831</Min>
+              <Max>0.39207636848111116</Max>
               <AutoScale>false</AutoScale>
             </RollingGraphVisualizer>
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>141</Source>
+          <Source>147</Source>
           <VisualizerTypeName>Bonsai.Vision.Design.IplImageVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <IplImageVisualizer />
           </VisualizerSettings>
         </MashupSettings>
         <MashupSettings>
-          <Source>143</Source>
+          <Source>149</Source>
           <VisualizerTypeName>Bonsai.Vision.Design.IplImageVisualizer</VisualizerTypeName>
           <VisualizerSettings>
             <IplImageVisualizer />
